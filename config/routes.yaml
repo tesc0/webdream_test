@@ -1,0 +1,31 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+newStorage:
+  path: /new_storage
+  controller: App\Controller\Site::createStorage
+
+storageContents:
+  path: /inventory
+  controller: App\Controller\Site::inventory
+
+storageContents2:
+  path: /inventory/{storage_id}
+  controller: App\Controller\Site::inventory
+
+createProducts:
+  path: /product/new
+  controller: App\Controller\Site::newProducts
+
+moveInventory:
+  path: /inventory/move/{from_id}/{to_id}
+  controller: App\Controller\Site::moveInventory
+  requirements:
+    from: '\d+'
+
+moveInventory2:
+  path: /inventory/move/{from_id}
+  controller: App\Controller\Site::moveInventory
+  requirements:
+    from: '\d+'
